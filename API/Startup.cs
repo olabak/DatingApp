@@ -24,12 +24,14 @@ namespace API
 {
     public class Startup
     {
+        
         public readonly IConfiguration _config;
+       
         
         public Startup(IConfiguration config)
         {
             _config = config;
-            
+           
             
         }
 
@@ -38,10 +40,12 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddApplicationServices(_config);
             services.AddControllers();
             services.AddCors();
             services.AddIdentityServices(_config);
+            
 
             
         }
@@ -70,5 +74,6 @@ namespace API
                 endpoints.MapControllers();
             });
         }
+
     }
 }

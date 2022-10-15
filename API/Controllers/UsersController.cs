@@ -25,8 +25,8 @@ namespace API.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
-            var users = await _context.Users.ToListAsync();
-            return users;
+            return  await _context.Users.ToListAsync();
+            
         }
 
         
@@ -35,8 +35,8 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            return user;
+            return await _context.Users.FindAsync(id);
+            
         }
     }
 }
